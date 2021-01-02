@@ -1,5 +1,12 @@
 <template>
-  <c-box display="flex" bg="black" w="100%" color="white" my="auto">
+  <c-box
+    display="flex"
+    bg="black"
+    w="100%"
+    color="white"
+    my="auto"
+    borderBottom="2px solid white"
+  >
     <c-box display="flex" justifyContent="space-between" w="1400px" mx="auto">
       <c-link display="flex" p="3" textDecoration="none" as="nuxt-link" to="/">
         <img src="../assets/logo.PNG" alt="logo" />
