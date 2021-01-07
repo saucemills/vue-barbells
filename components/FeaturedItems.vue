@@ -15,16 +15,24 @@
       justifyContent="center"
       flexWrap="wrap"
     >
-      <FeaturedItem />
-      <FeaturedItem />
-      <FeaturedItem />
+      <template v-for="product in products">
+        <FeaturedItem :key="product.id" :product="product" />
+      </template>
     </c-box>
   </c-box>
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
 import { CBox, CHeading } from "@chakra-ui/vue";
 import FeaturedItem from "./FeaturedItem";
 
-export default {};
+export default {
+  components: {
+    FeaturedItem
+  },
+  computed: {
+    ...mapGetters({ products: "products" })
+  }
+};
 </script>

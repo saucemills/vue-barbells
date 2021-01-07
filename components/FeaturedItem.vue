@@ -8,7 +8,7 @@
     boxShadow="md"
     m="4"
   >
-    <img src="../assets/vegasStrong1.JPG" alt="vegas strong tee" />
+    <img :src="product.media.source" alt="vegas strong tee" />
     <c-box p="6" w="300px">
       <c-box d="flex" align-items="baseline">
         <c-badge rounded="full" px="2" variant-color="red">
@@ -23,11 +23,10 @@
         line-height="tight"
         is-truncated
       >
-        Vegas Strong T-Shirt
+        {{ product.title }}
       </c-box>
       <c-text fontSize="sm" px="2">
-        Honor your city in our newest, coolest tee featuring our VEGAS STRONG
-        logo and shimmering gold color.
+        {{ product.description }}
       </c-text>
       <c-button
         as="nuxt-link"
@@ -48,7 +47,21 @@
 <script>
 import { CBox, CImage, CBadge, CText } from "@chakra-ui/vue";
 
-export default {};
+export default {
+  name: "FeaturedItem",
+  props: {
+    product: {
+      type: Object,
+      default: () => ({
+        id: "",
+        media: null,
+        name: "",
+        price: "",
+        description: ""
+      })
+    }
+  }
+};
 </script>
 
 <style scoped>
